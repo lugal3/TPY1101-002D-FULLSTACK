@@ -140,7 +140,7 @@ Al finalizar la evaluación deberán entregar:
 * Nombre de la rama utilizada.
 * Nombre de los integrantes de la dupla.
 * adjuntar Archivo .ZIP de la rama creada
-** Archivo .ZIP de la rama creada.
+
 * Evidencia fotográfica de:
 
   * Pantalla de Inicio de Sesión.
