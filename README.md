@@ -140,8 +140,15 @@ Al finalizar la evaluación deberán entregar:
 * Nombre de la rama utilizada.
 * Nombre de los integrantes de la dupla.
 * adjuntar Archivo .ZIP de la rama creada
-* Evidencia Fotografica de aplicacion Pantalla Inicio, Listado Usuarios, Agregar, Actualizar, Eliminacion Usuario.
-* Enviar esta información al correo que se entregara en la Actividad
+** Archivo .ZIP de la rama creada.
+* Evidencia fotográfica de:
+
+  * Pantalla de Inicio de Sesión.
+  * Pantalla de Listado de Usuarios.
+  * Pantalla de Creación de Usuario.
+  * Pantalla de Actualización de Usuario.
+  * Pantalla de Eliminación de Usuario.
+* Enviar toda la información al correo electrónico que será informado durante la actividad.
 
 ---
 
