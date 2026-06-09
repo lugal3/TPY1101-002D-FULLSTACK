@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -15,6 +16,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableWebSecurity
+@EnableMethodSecurity // Permite el uso de anotaciones como @PreAuthorize
 public class SecurityConfig {
 
     @Bean
@@ -39,8 +41,10 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable()) // Deshabilita CSRF ya que usamos JWT
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // Sin estado
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/**").permitAll() // Permite login y registro sin token
-                .requestMatchers("/api/users/**").authenticated() // Requiere token para gestionar usuarios
+                // Permitimos el registro y el login a todos, pero protegemos /api/auth/profile
+                .requestMatchers("/api/auth/login", "/api/auth/register").permitAll() 
+                .requestMatchers("/api/auth/profile").authenticated() // Requiere token para el perfil
+                .requestMatchers("/api/users/**").hasRole("ADMIN") // Requiere rol ADMIN (Spring añade 'ROLE_' por debajo)
                 .anyRequest().authenticated()
             );
 
