@@ -41,10 +41,13 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable()) // Deshabilita CSRF ya que usamos JWT
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // Sin estado
             .authorizeHttpRequests(auth -> auth
-                // Permitimos el registro y el login a todos, pero protegemos /api/auth/profile
+                // Permitimos el registro y el login a todos
                 .requestMatchers("/api/auth/login", "/api/auth/register").permitAll() 
                 .requestMatchers("/api/auth/profile").authenticated() // Requiere token para el perfil
-                .requestMatchers("/api/users/**").hasRole("ADMIN") // Requiere rol ADMIN (Spring añade 'ROLE_' por debajo)
+                
+                // 🛡️ SOLUCIÓN 403: Mapea la raíz, subrutas y quita la exigencia estricta del prefijo ROLE_
+                .requestMatchers("/api/users", "/api/users/**").hasAnyAuthority("ADMIN", "ROLE_ADMIN") 
+
                 .anyRequest().authenticated()
             );
 
