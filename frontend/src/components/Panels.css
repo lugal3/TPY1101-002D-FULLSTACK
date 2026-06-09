@@ -1,0 +1,227 @@
+/* Panels.css */
+
+:root {
+  --primary-turquoise: #00a896;
+  --primary-hover: #028090;
+  --accent-green: #02c39a;
+  --dark-green: #114b5f;
+  --text-color: #2b2d42;
+  --bg-light: #f4f9f9;
+  --border-color: #cbd5e1;
+  --white: #ffffff;
+}
+
+.dashboard-layout {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-color);
+}
+
+.panel-header {
+  margin-bottom: 2rem;
+  border-bottom: 3px solid var(--accent-green);
+  padding-bottom: 0.5rem;
+}
+
+.panel-header h1 {
+  color: var(--dark-green);
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+/* Grilla de Tarjetas / Métricas */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.card {
+  background-color: var(--white);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 168, 150, 0.05);
+  border-left: 4px solid var(--primary-turquoise);
+}
+
+.card h3 {
+  margin: 0 0 0.5rem 0;
+  color: #64748b;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card .value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--dark-green);
+  margin: 0;
+}
+
+/* Sección de Información de Cuenta */
+.profile-section {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .profile-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+.info-box {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 168, 150, 0.05);
+}
+
+.info-box h2 {
+  color: var(--dark-green);
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.info-item {
+  margin-bottom: 1rem;
+}
+
+.info-item label {
+  display: block;
+  font-size: 0.85rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.info-item p {
+  margin: 0.2rem 0 0 0;
+  font-size: 1.05rem;
+  color: var(--text-color);
+}
+
+/* Tablas para el Panel de Admin */
+.table-container {
+  background-color: var(--white);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 168, 150, 0.05);
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.admin-table th {
+  background-color: var(--bg-light);
+  color: var(--dark-green);
+  padding: 1rem;
+  font-weight: 600;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.admin-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.95rem;
+}
+
+/* Badges / Etiquetas de estado */
+.badge {
+  padding: 0.25rem 0.6rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.badge.admin {
+  background-color: rgba(17, 75, 95, 0.1);
+  color: var(--dark-green);
+}
+
+.badge.user {
+  background-color: rgba(0, 168, 150, 0.1);
+  color: var(--primary-turquoise);
+}
+
+/* Botones genéricos de acción */
+.panel-btn {
+  background-color: var(--primary-turquoise);
+  color: var(--white);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.panel-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+.panel-btn.secondary {
+  background-color: transparent;
+  color: var(--dark-green);
+  border: 1px solid var(--dark-green);
+  margin-left: 0.5rem;
+}
+
+.panel-btn.secondary:hover {
+  background-color: var(--bg-light);
+}
+/* Nuevos estilos para los formularios de edición */
+.edit-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+  margin-top: 0.2rem;
+  box-sizing: border-box;
+}
+
+.edit-input:focus {
+  outline: none;
+  border-color: var(--primary-turquoise);
+}
+
+.edit-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.admin-edit-box {
+  margin-top: 2rem;
+  border-top: 2px dashed var(--accent-green);
+  padding-top: 1.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.select-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--bg-light);
+  font-size: 1rem;
+  margin-top: 0.2rem;
+}

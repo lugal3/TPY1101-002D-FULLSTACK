@@ -1,0 +1,85 @@
+/* Navbar.css */
+
+:root {
+  --primary-turquoise: #00a896;
+  --accent-green: #02c39a;
+  --dark-green: #114b5f;
+  --bg-light: #f4f9f9;
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 168, 150, 0.08);
+  font-family: var(--font-family);
+  border-bottom: 1px solid rgba(0, 168, 156, 0.1);
+}
+
+.nav-brand {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--dark-green);
+  cursor: pointer;
+  user-select: none;
+}
+
+.nav-brand span {
+  color: var(--primary-turquoise);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #64748b;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+  position: relative;
+  padding: 0.25rem 0;
+}
+
+/* Efecto hover decorativo con la línea turquesa debajo */
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-green);
+  transition: width 0.3s ease;
+}
+
+.nav-item:hover {
+  color: var(--dark-green);
+}
+
+.nav-item:hover::after {
+  width: 100%;
+}
+
+/* Clase para simular un botón de acción en el nav */
+.nav-btn-mock {
+  background-color: var(--bg-light);
+  color: var(--primary-turquoise);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  border: 1px solid rgba(0, 168, 156, 0.2);
+}
+
+.nav-btn-mock:hover {
+  background-color: var(--primary-turquoise);
+  color: #ffffff;
+}
